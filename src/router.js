@@ -14,6 +14,7 @@ export default Router.extend({
 	'':'public',
 	'login': 'login',
 	'auth/callback?:query': 'authcallback',
+	'logout': 'logout'
 	'*fourOhFour':'fourOhFour'
 	},
 	public() {
@@ -41,6 +42,10 @@ export default Router.extend({
 		})
 
 		React.render(<MessagePage title='Fetching your page' body='Fetching data please hold tight!!!'/>)
+	},
+	logout() {
+		window.localStorage.clear()
+		window.location = '/'
 	},
 	fourOhFour() {
 		React.render(<MessagePage title='Not Found' body='404. Nothing Found on the link you are trying'/>, document.body)
